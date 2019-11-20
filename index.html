@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dental A Plus - Home</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="http://www.jacklmoore.com/colorbox/example1/colorbox.css" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://www.jacklmoore.com/colorbox/jquery.colorbox.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <a href="login.html" id="loginBtn">Login</a>
+        <img src="images/logo.png">
+    </header>
+    <nav id="navbar">
+        <a href="index.html" id="current_page" style="color: white;">HOME</a>
+        <a href="services.html">SERVICES</a>
+        <a href="queue.html">QUEUE</a>
+        <a href="consult.html">CONSULT</a>
+        <a href="contact.html">CONTACT</a>
+        <div class="line"></div>
+    </nav>
+    <div id="web_header_home">
+        <img id="head_home" src="images/baby_dent.jpg">
+        <div class="center_bottom">
+            <a href="queue.html" class="queueButton">Real-time Queue Checking</a>
+        </div>
+    </div>
+
+    <div style=" height: 100px;"></div>
+
+    <div id="content_home">
+        <table>
+            <tr id="row_label">
+                <td>
+                    <div id="content_table_home">
+                        <img id="table_dentalcare" src="images/background_content_home.jpg">
+                        <div class="top_content_home">
+                            <img id="img_dentalcare" src="images/dentalCare_home.png">
+                        </div>
+                        <div class="center_content_home">
+                            <p id="txt_content">Dental care</p>
+                        </div>
+                        <div class="center_bottom">
+                            <a href="services.html" class="moreButton">More</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div id="content_table_home">
+                        <img id="table_dentalcare" src="images/background_content_home.jpg">
+                        <div class="top_content_home">
+                            <img id="img_review" src="images/review_home.png">
+                        </div>
+                        <div class="center_content_home">
+                            <p id="txt_content">Review</p>
+                        </div>
+                        <div class="center_bottom">
+                            <a id="review_more" class="moreButton">More</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div id="content_table_home">
+                        <img id="table_dentalcare" src="images/background_content_home.jpg">
+                        <div class="top_content_home">
+                            <img id="img_knowledge" src="images/knowledge_home.png">
+                        </div>
+                        <div class="center_content_home">
+                            <p id="txt_content">Knowledge</p>
+                        </div>
+                        <div class="center_bottom">
+                            <a href="knowledge.html" class="moreButton">More</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div style=" height: 100px;"></div>
+
+    </div>
+    <div class="content_services">
+        <div style=" height: 50px;"></div>
+        <h1 id="our_services">Our Services</h1>
+        <table id="home_table">
+            <tr id="row_label">
+                <td>
+                    <img id="img_services" src="images/extract_home.jpg">
+                </td>
+                <td>
+                    <img id="img_services" src="images/orthodontics_home.jpg">
+                </td>
+                <td>
+                    <img id="img_services" src="images/enamel_home.jpg">
+                </td>
+            </tr>
+            <tr id="row_label">
+                <td><img id="img_services" src="images/brace_home.jpg"></td>
+                <td><img id="img_services" src="images/endodontics_home.jpg"></td>
+                <td><img id="img_services" src="images/drill_home.jpg"></td>
+            </tr>
+        </table>
+        <div style=" height: 100px;"></div>
+    </div>
+
+    <div id="content_dentist">
+        <div class="center_top_dentist">
+            <a href="#" class="moreDentistButton">more</a>
+        </div>
+        <h3 id="dentist">Dentist</h3>
+        <div class="name_degree">Name Degree</div>
+        <div class="position_dentist">
+            <img src="images/dentist_people.png">
+        </div>
+    </div>
+
+    <div id="footer">Copyright @ 2019 All Rights Reserved</div>
+    <script>
+        /* pop up of review*/
+        var review_more = document.getElementById("review_more");
+
+        function openColorBox() {
+            $.colorbox({ iframe: true, width: "1000px", height: "800px", href: "review.html" });
+        }
+
+        review_more.addEventListener('click', openColorBox);
+
+
+
+    </script>
+</body>
+
+</html>

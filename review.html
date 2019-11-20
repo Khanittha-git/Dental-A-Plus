@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental A Plus - Consult</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/fonts/flat-icon/flaticon.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="materialize-css/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="materialize-css/dist/css/materialize.css">
+    <link rel="stylesheet" href="materialize-css/dist/js/materialize.min.js">
+
+</head>
+
+<body>
+    <header>
+        <a href="login.html" id="loginBtn">Login</a>
+        <img src="images/logo.png">
+    </header>
+
+    <div id="web_header_review">
+        <p style="margin-top: -20px;">Review</p>
+    </div>
+
+
+    <table class="box_comment"></table>
+
+
+    <div>
+        <h2 class="page-section__title" style="text-align: center;">Write and Comment Review</h2>
+        <img class="page-section__title-style" src="assets/images/title-style.png" alt="">
+    </div>
+
+    <div id="demoObject" class="comment_review">
+        <div class="row">
+            <form class="col s12">
+                <div class="row" style="width: 70%;">
+                    <div class="input-field col s12">
+                        <label for="topic">Topic</label><br>
+                        <input id="topic" type="text" class="validate">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <label for="first_name">First Name</label><br>
+                        <input id="first_name" type="text" class="validate">
+                    </div>
+                    <div class="input-field col s6">
+                        <label for="last_name">Last Name</label><br>
+                        <input id="last_name" type="text" class="validate">
+                    </div>
+                </div>
+                <div class="row" style="width: 70%;">
+                    <div class="input-field col s12">
+                        <label for="email">Email</label><br>
+                        <input id="email" type="email" class="validate">
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="email">Rating for this review</label>
+                    <div class='empty'></div>
+                    <span id="star1" class="fa fa-star"></span>
+                    <span id="star2" class="fa fa-star"></span>
+                    <span id="star3" class="fa fa-star"></span>
+                    <span id="star4" class="fa fa-star"></span>
+                    <span id="star5" class="fa fa-star"></span>
+
+
+                </div>
+            </div>
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <label for="comment" style="font-size: 15px;">Comment:</label>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <button id="submit" class="read">SUBMIT</button>
+    </div>
+
+    <div id="free_space" ></div>
+    <div id="footer" style="padding-top: 10px;">Copyright @ 2019 All Rights Reserved</div>
+    <script src="assets/jquery/jquery-3.2.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/mixitup.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyBk49Onan2DPGveFtHC1b9XNeN-WzFS2_Q",
+            authDomain: "comment-dental.firebaseapp.com",
+            databaseURL: "https://comment-dental.firebaseio.com",
+            projectId: "comment-dental",
+            storageBucket: "comment-dental.appspot.com",
+            messagingSenderId: "377057463182",
+            appId: "1:377057463182:web:a03c94e8b7c7a9e01cf2df",
+            measurementId: "G-QJFSNQF8P2"
+        };
+        // Initialize Firebase
+        const myFire = firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = myFire.firestore();
+
+        /*  Rating Star     */
+        var star1 = document.getElementById('star1');
+        var star2 = document.getElementById('star2');
+        var star3 = document.getElementById('star3');
+        var star4 = document.getElementById('star4');
+        var star5 = document.getElementById('star5');
+        var star = 0;
+        function starActive1() {
+            star = 1;
+            star1.setAttribute('style', 'color: orange;');
+            star2.setAttribute('style', 'color: darkslategray;');
+            star3.setAttribute('style', 'color: darkslategray;');
+            star4.setAttribute('style', 'color: darkslategray;');
+            star5.setAttribute('style', 'color: darkslategray;');
+        }
+        function starActive2() {
+            star = 2;
+            star1.setAttribute('style', 'color: orange;');
+            star2.setAttribute('style', 'color: orange;');
+            star3.setAttribute('style', 'color: darkslategray;');
+            star4.setAttribute('style', 'color: darkslategray;');
+            star5.setAttribute('style', 'color: darkslategray;');
+        }
+        function starActive3() {
+            star = 3;
+            star1.setAttribute('style', 'color: orange;');
+            star2.setAttribute('style', 'color: orange;');
+            star3.setAttribute('style', 'color: orange;');
+            star4.setAttribute('style', 'color: darkslategray;');
+            star5.setAttribute('style', 'color: darkslategray;');
+        }
+        function starActive4() {
+            star = 4;
+            star1.setAttribute('style', 'color: orange;');
+            star2.setAttribute('style', 'color: orange;');
+            star3.setAttribute('style', 'color: orange;');
+            star4.setAttribute('style', 'color: orange;');
+            star5.setAttribute('style', 'color: darkslategray;');
+        }
+        function starActive5() {
+            star = 5;
+            star1.setAttribute('style', 'color: orange;');
+            star2.setAttribute('style', 'color: orange;');
+            star3.setAttribute('style', 'color: orange;');
+            star4.setAttribute('style', 'color: orange;');
+            star5.setAttribute('style', 'color: orange;');
+        }
+
+        star1.addEventListener('click', starActive1);
+        star2.addEventListener('click', starActive2);
+        star3.addEventListener('click', starActive3);
+        star4.addEventListener('click', starActive4);
+        star5.addEventListener('click', starActive5);
+
+        /* READ comment review */
+        readReview();
+        function readReview() {
+            var result = "";
+            db.collection("comment").get().then(function (querySnapshot) {
+                var check = 0;
+                querySnapshot.forEach(function (doc) {
+                    check += 1;
+                    var star_box = doc.data().star;
+                    var comment_box = doc.data().comment;
+                    var email_box = doc.data().email;
+                    var firstname_box = doc.data().firstname.toUpperCase();
+                    var lastname_box = doc.data().lastname.toUpperCase();
+                    var topic_box = doc.data().topic;
+                    // console.log(doc.id, " => ", doc.data());
+                    console.log(doc.data().comment);
+
+                    if ((check % 2) === 1) {
+                        console.log(star_box);
+
+                        result = result + "<tr><td style='width: 500px;'><div id='demoObject'>"
+                            + "<h3 style='font-size: 35px;color: darkslategray;'class='team__single-section__name'>";
+                        result = result + topic_box + "</h3>";
+                        result = result + "<h4 class='team__single-section__name'style='font-size: 17px;'>";
+                        result = result + firstname_box + " " + lastname_box + "</h4>";
+                        result = result + "<p class='team__single-section__title' style='font-size: 13px;'>";
+                        result = result + email_box + "</p>";
+                        result = result + "<p style='padding-left: 20px;font-size: 20px;'>";
+                        result = result + comment_box + "</p>";
+                        result = result + "<div id='star'>";
+                        for (i = 1; i <= star_box; i++) {
+                            result = result + "<span class='fa fa-star'></span>"
+                        }
+                        result = result + "</div><div class='empty'></div></div></td>";
+                    } else {
+                        console.log(star_box);
+
+                        result = result + "<td style='width: 500px;'><div id='demoObject'>"
+                            + "<h3 style='font-size: 35px;color: darkslategray;'class='team__single-section__name'>";
+                        result = result + topic_box + "</h3>";
+                        result = result + "<h4 class='team__single-section__name'style='font-size: 17px;'>";
+                        result = result + firstname_box + " " + lastname_box + "</h4>";
+                        result = result + "<p class='team__single-section__title' style='font-size: 13px;'>";
+                        result = result + email_box + "</p>";
+                        result = result + "<p style='padding-left: 20px;font-size: 20px;'>";
+                        result = result + comment_box + "</p>";
+                        result = result + "<div id='star'>";
+                        for (i = 1; i <= star_box; i++) {
+                            result = result + "<span class='fa fa-star'></span>"
+                        }
+                        result = result + "</div><div class='empty'></div></div></td>";
+                    }
+
+                    $(".box_comment").html(result)
+
+                });
+
+
+
+            });
+
+        }
+
+        /* ADD comment review */
+
+
+        var topic = document.getElementById('topic');
+        var firstname = document.getElementById('first_name');
+        var lastname = document.getElementById('last_name');
+        var email = document.getElementById('email');
+        var comment = document.getElementById('comment');
+        var submit = document.getElementById('submit');
+
+
+        function addComment() {
+            if (topic.value != "" & firstname.value != "" & lastname.value != ""
+                & email.value != "" & comment.value != "") {
+
+                db.collection("comment").add({
+                    star: star,
+                    comment: comment.value,
+                    email: email.value,
+                    firstname: firstname.value,
+                    lastname: lastname.value,
+                    topic: topic.value
+                })
+                    .then(function (docRef) {
+                        console.log("Document written with ID: ", docRef.id);
+                    })
+                    .catch(function (error) {
+                        console.error("Error adding document: ", error);
+                    });
+                setTimeout(function () { location.reload(); }, 3000);
+
+            } else {
+
+                alert("Please!, fill all input.");
+            }
+
+
+        }
+
+
+        submit.addEventListener('click', addComment);
+
+
+    </script>
+
+
+</body>
+
+</html>

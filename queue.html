@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dental A Plus - Consult</title>
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body onload="renderTime();">
+    <header>
+        <a href="login.html" id="loginBtn">Login</a>
+        
+        <img src="images/logo.png">
+    </header>
+    <nav id="navbar">
+        <a href="index.html">HOME</a>
+        <a href="services.html">SERVICES</a>
+        <a href="queue.html" id="current_page"  style="color: white;">QUEUE</a>
+        <a href="consult.html">CONSULT</a>
+        <a href="contact.html">CONTACT</a>
+        <div class="line"></div>
+        <div class="line"></div>
+    </nav>
+    <div id="web_header">
+        <p>Real-time queue checking</p>
+    </div>
+    <div id="queue_calendar">
+        <img src="images/calendar.png">
+        <div id="sep_line">line</div>
+        <p id="dateSeven"></p>
+        <p id="dateDisplay"></p>
+        <img src="images/time.png" style="width: 3%; ">
+        <p id="clockDisplay"></p>
+        <p id="para2">Open daily: 9.00 - 19.00</p>
+    </div>
+    <div>
+        <p id="patient_queue">8</p>
+        <p id="num_of_queue">Number of Queue</p>
+    </div>
+    <div id="free_space"></div>
+    <div id="footer">Copyright @ 2019 All Rights Reserved</div>
+
+    <script>
+        function renderTime() {
+            // Date 
+            var myDate = new Date();
+            var year = myDate.getYear();
+            if (year < 1000) {
+                year += 1900;
+            }
+            var day = myDate.getDay();
+            var month = myDate.getMonth();
+            var daym = myDate.getDate();
+            var dayArray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+            var monthArray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+            // Date End
+
+            // Time
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            if (hours == 24) {
+                hours = 0;
+            } else if (hours > 12) {
+                hours = hours - 0;
+            }
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+
+            var myDay = document.getElementById("dateSeven");
+            var myDate = document.getElementById("dateDisplay");
+            var myClock = document.getElementById("clockDisplay");
+
+            myDay.innerHTML = dayArray[day];
+            myDate.innerHTML = daym + " " + monthArray[month] + " " + year;
+            myClock.innerHTML = hours + ":" + minutes + ":" + seconds;
+
+            setTimeout('renderTime()', 1000);
+        }
+        renderTime();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,541 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Sarabun&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,700i,800,800i,900,900i&display=swap');
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 900px;
+
+}
+
+html {
+  font-size: 10px;
+  background-color: #fafafa;
+  font-family: "Montserrat", sans-serif;
+}
+
+img {
+  width: 25%;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+#loginBtn {
+  border: 1px solid #9969A2;
+  border-radius: 1em;
+  background-color: #9969A2;
+  color: white;
+  padding: 10px 10px;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+  width: 75px;
+  right: -1365px;
+}
+
+#navbar {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+#navbar a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 0 50px;
+  color: black;
+}
+
+#navbar a:hover, #current_page {
+  border-radius: 25px;
+  background: #9969A2;
+  color: white;
+  transition-duration: 0.5s;
+}
+/* page Home */
+#web_header_home{
+  position: relative;
+  margin-top: 30px;
+}
+#head_home,#img_dentist{
+  width: 100%;
+}
+
+/* position */
+.center_bottom {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.top_content_home{
+  position: absolute;
+  top: 30%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+}
+.center_content_home{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center_top_dentist{
+  position: absolute;
+  top: -1%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.position_dentist{
+  position: absolute;
+  bottom: 120px;
+  left: 100px;
+  width: 800px;
+}
+.name_degree{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/***Button***/
+.moreDentistButton{
+  background-color:#00bbc3;
+	border-radius:37px;
+	border:10px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:18px;
+	padding:13px 14px;
+  text-decoration:none;
+  width: 100px;
+  text-align: center;
+}
+.moreDentistButton:hover {
+	background-color:#00bbc3;
+}
+.moreDentistButton:active {
+	position:relative;
+	top:1px;
+}
+.queueButton {
+	background-color:#9969a2;
+	border-radius:37px;
+	border:15px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	padding:15px 14px;
+  text-decoration:none;
+  width: 100px;
+  text-align: center;
+  transition-duration: 0.5s;
+}
+.queueButton:hover {
+	background-color:#9969a2;
+}
+.queueButton:active {
+	position:relative;
+	top:1px;
+}
+/* content */
+#content_home{
+  display: inline-block;
+  margin-left: 14.5%;
+}
+#content_table_home{
+  position: relative;
+  margin-top: 30px;
+}
+#table_dentalcare{
+  width: 100%;
+  height: 350px;
+  border-radius:15px;
+}
+#home_table{
+  display: inline-block;
+  margin-left: 19%;
+}
+/**********/
+.moreButton{
+	background-color:#00bbc3;
+	border-radius:37px;
+	border:7px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:15px 14px;
+  text-decoration:none;
+  width: 50px;
+  text-align: center;
+  height: 10px;
+  transition-duration: 0.5s;
+}
+.moreButton:hover {
+	background-color:#9969a2;
+}
+.moreButton:active {
+	position:relative;
+	top:1px;
+}
+/* text content*/
+#txt_content{
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+/* img content */
+#img_dentalcare,#img_knowledge{
+  width: 150px;
+  height: 150px;
+}
+#img_review{
+  width: 170px;
+  height: 150px;
+}
+#img_services{
+    width: 250px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#img_dentist{
+  height: 10%;
+}
+/* our services */
+#our_services{
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+}
+.content_services{
+  background-color: white ;
+}
+/* last home */
+#content_dentist{
+  text-align: center;
+  background-image: linear-gradient(to bottom, #7f59d0 , #00bbc3);
+  height: 400px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  padding-top: 30px;
+  position: relative;
+}
+.name_degree{
+  background-color:#ffffff;
+	border-radius:15px;
+	border:7px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:black;
+	font-family:Arial;
+	font-size:20px;
+	padding:15px 14px;
+  text-decoration:none;
+  width: 600px;
+  text-align: center;
+  height: 100px;
+}
+
+/* page: consult */
+
+#web_header p {
+  text-align: center;
+  background-image: linear-gradient(to right, #7f59d0 , #00bbc3);
+  height: 60px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  padding-top: 30px;
+}
+
+#consult_inputBox input {
+  position: relative;
+  border-radius: 10px;
+  width: 300px;
+  height: 40px;
+  font-size: 15px;
+  padding: 0 20px;
+  border-width: 4px;
+}
+
+#consult_inputBox input:focus, #consult_textArea:focus {
+  border-color: #7f59d0;
+}
+
+#consult_table {
+  border-collapse: collapse;
+  border-color: #7f59d0;
+  border-width: 10px;
+  width: 60%;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 70px;
+  padding: 1px;
+}
+
+#consult_table td {
+  height: 80px;
+}
+
+#row_label td {
+  text-align: left;
+  height: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 45px;
+}
+
+#row_textArea td {
+  text-align: left;
+  height: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 45px;
+  padding-top: 60px;
+}
+
+#consult_textArea {
+  position: relative;
+  border-radius: 5px;
+  margin-top: 35px;
+  left: 23%;
+  width: 740px;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-width: 4px;
+  border-color: gray;
+  resize: none;
+}
+
+#uploadFile {
+  border-radius: 5px;
+  margin-top: 35px;
+  width: 200px;
+  height: 70px;
+  font-size: 20px;
+  color: white;
+  background-color: #00bbc3;
+  position: relative;
+  overflow: hidden;
+  left: 150%;
+}
+
+#send {
+  border-radius: 5px;
+  margin-top: 35px;
+  width: 200px;
+  height: 70px;
+  font-size: 20px;
+  color: white;
+  background-color: #00bbc3;
+  position: relative;
+  overflow: hidden;
+  left: 150%;
+}
+
+#uploadFile:hover, #send:hover {
+  background-color: black;
+}
+
+/* Page: queue */
+#queue_calendar img {
+  margin-top: 70px;
+  width: 20%;
+}
+
+#sep_line {
+  background-color: gray;
+  color: gray;
+  font-size: 1px;
+  width: 25%;
+  height: 4px;
+  display: block;
+  margin: 0 auto;
+}
+
+#dateSeven {
+  text-align: center;
+  font-size: 25px;
+  color: #4B0082;
+  font-weight: bold;
+}
+
+#dateDisplay {
+  text-align: center;
+  font-size: 50px;
+  color: black;
+  font-weight: bold;
+}
+
+#clockDisplay {
+  text-align: center;
+  font-size: 25px;
+  color: #4B0082;
+  font-weight: bold;
+}
+
+#para2 {
+  text-align: center;
+  font-size: 20px;
+  color: #7f59d0;
+  font-weight: bold;
+  margin-bottom: 70px;
+}
+
+#patient_queue {
+  background-image: linear-gradient(#7f59d0 , #00bbc3);
+  color: white;
+  font-size: 120px;
+  font-weight: bold;
+  width: 200px;
+  height: 220px;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 60px;
+  display: block;
+  margin: 0 auto;
+}
+
+#num_of_queue {
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+}
+
+#free_space {
+  height: 300px;
+}
+
+#footer {
+  text-align: center;
+  background-image: linear-gradient(to right, #7f59d0 , #00bbc3);
+  height: 40px;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  padding-top: 30px;
+  
+}
+
+/* services*/
+
+#services_oral {
+  padding-left: 22%;
+  border-spacing:0 10px;
+  padding-bottom: 1%;
+}
+#services_oral td {
+  font-size: 18px;
+  width: 33rem;
+  vertical-align: top;
+  padding-left: 2%;
+}
+#services_oral tr {
+  padding-top: 100px;
+}
+
+#service_tr_bg {
+  background-color: #e5e5e5;
+  border-radius: 0.5em;
+}
+
+#services_subHead{
+  width: 63%;
+  font-family: "Sarabun", sans-serif;
+}
+#service_teeth_img {
+  width: 15%;
+  float: right;
+  padding-right: 2%;
+  
+}
+
+#services_h3 {
+  color: white;
+  font-size: 25px;
+  background-image: linear-gradient(to right, #753a88 , #cc2b5e );
+  border-radius: 0.2em;
+  padding-left: 2%;
+}
+
+hr {
+  width: 60%;
+  border-top: 1px dashed rebeccapurple;
+}
+
+/*review page*/
+#star1,#star2,#star3,#star4,#star5,#star{      
+  font-size: 30px;
+}
+
+#star {
+  color: orange;
+  padding-left: 20px;
+
+}
+.read{
+  margin-top: 15px;
+  display: block;
+  background: linear-gradient(to right, #7f59d0, #00bbc3);
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+.team__single-section__title{
+  margin: 0;
+  padding-bottom: 0;
+}
+.comment_review#demoObject{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.empty{
+  height: 50px;
+}
+#demoObject {
+  -webkit-box-shadow: -1px 3px 19px -5px rgba(0,0,0,0.27); 
+  box-shadow: -1px 3px 19px -5px rgba(0,0,0,0.27);
+  background: #FFFFFF;
+  padding: 5px;
+  margin: 20px;
+
+}
+body#tinymce {
+  background: #FFFFFF
+}
+#web_header_review{
+  text-align: center;
+  background-image: linear-gradient(to right, #7f59d0 , #00bbc3);
+  height: 75px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  padding-top: 30px;
+}
+
+

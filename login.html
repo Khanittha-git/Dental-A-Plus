@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+
+
+
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" href="styles/style.css" />
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+</head>
+
+<body>
+
+	<div id="login_div" class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100" style="height: 40%;">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-26">
+						Welcome
+					</span>
+					<a href="index.html"><img src="images/logo.png" class="logo_login" style="width: 50%;"></a>
+					<span class="login100-form-title p-b-48" style="padding-bottom: 30px;">
+						<i class="zmdi zmdi-font"></i>
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+						<input class="input100" type="text" name="email" id="userEmail">
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass" id="userPassword">
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" id="bt">
+								Login
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-115" style="height: 50px; padding-top:50px ;">
+						<span class="txt1">
+							Don’t have an account?
+						</span>
+
+						<a class="txt2" href="#">
+							Sign Up
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="errors" style='display: none;'>
+		</div>
+		<div id="success" style='display: none;'>
+		</div>
+
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+	<script>
+
+		var firebaseConfig = {
+			apiKey: "AIzaSyCNzUjr1xNqunHWf_Ny5yuMjjZSI5KR4i4",
+			authDomain: "web-login-1037b.firebaseapp.com",
+			databaseURL: "https://web-login-1037b.firebaseio.com",
+			projectId: "web-login-1037b",
+			storageBucket: "web-login-1037b.appspot.com",
+			messagingSenderId: "858741512793",
+			appId: "1:858741512793:web:7c53a728a943510258af48",
+			measurementId: "G-GN2TW1JG4Q"
+		};
+
+		document.getElementById("bt").onclick = function (e) {
+            e.preventDefault();
+            console.log('click');
+            handleSignUp();
+		}
+
+		firebase.initializeApp(firebaseConfig);
+		function handleSignUp() {
+            var errors = document.getElementById('errors');
+            var email = document.getElementById('userEmail').value;
+            var password = document.getElementById('userPassword').value;
+            var warnings = "";
+
+            if (email.length < 4) {
+                warnings += 'You need a valid email chief <br/>';
+            }
+            if (password.length < 4) {
+                warnings += 'You need a valid password boss <br/>';
+            }
+
+            if (warnings != "") {
+                console.log(warnings);
+                errors.style.display = 'block';
+                errors.innerHTML = warnings;
+            } else {
+
+                errors.style.display = "none";
+                console.log(email + "----" + password);
+                firebase.auth().signInWithEmailAndPassword(email, password).then(function (result) {
+                    console.log('OK')
+					console.log(result)
+					
+				
+					
+                })
+                    .catch(function (error) {
+                        errors.style.display = (errors.style.display === "none" || errors.style.display === "") ? "block" : "none";
+                        console.log(error);
+                        errors.innerHTML = "wi" + "<br/>";
+                    });
+            }
+		}
+		firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+
+
+				window.location.href = "http://localhost:8000/admin_appointment.html";
+                var fireBase_email = user.email;
+                var success = document.getElementById('success');
+                success.style.display = (success.style.display === "none" || success.style.display === "") ? "block" : "none";
+                success.innerHTML = "User Logged in with Credentials: <br />" +
+                    
+                    "<b>Email: </b>" + fireBase_email + "<br />";
+            }
+        });
+
+
+        /*firebase.auth().signOut().then(function () {
+            // Sign-out successful.
+        }, function (error) {
+            // An error happened.
+        });*/
+
+
+		
+
+
+
+
+	</script>
+
+
+	
+
+	
+
+
+
+</body >
+
+</html >

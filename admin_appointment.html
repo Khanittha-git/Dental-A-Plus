@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental A Plus - Consult</title>
+    <link rel="stylesheet" href="styles/style2.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+
+    <style>
+        button {
+            margin-top: 15px;
+            display: block;
+            background: linear-gradient(to right, #7f59d0, #00bbc3);
+            color: white;
+            border: none;
+            outline: none;
+            padding: 8px 20px;
+            text-transform: capitalize;
+            cursor: pointer;
+            font-size: 20px;
+            margin-left : 30%
+           
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="admin_header">
+        <p>Today's Appointment</p>
+    </div>
+    <div class="sidenav">
+        <img src="images/logo.png">
+        <div id="appointment_clock">
+            <p id="dateSeven"></p>
+            <p id="dateDisplay"></p>
+            <p id="clockDisplay"></p>
+        </div>
+        <a href="admin_appointment.html" id="current_page">Appointment</a>
+        <a href="admin_pateints.html">Patients</a>
+        <a href="admin_queue.html">Queue update</a>
+        <a href="admin_consult.html">Consult</a>
+        <hr>
+        <button id="bt-logout">Log out</botton>
+    </div>
+    <div id="calendar">
+        <iframe
+            src="https://calendar.google.com/calendar/embed?height=600&ampwkst=1&ampbgcolor=%237f59d0&ampctz=Asia%2FBangkok&ampsrc=a2t1bWFpbC5jb21fNWxoMmJtdmszZWcwcDM4aGpxMDAwNm5uNm9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&ampcolor=%2370237F&ampshowTz=0&ampshowTitle=1&ampshowDate=1&ampshowPrint=1&ampshowTabs=1&ampshowCalendars=1"
+            style="border-width:0" width="1000" height="800" frameborder="0" scrolling="no"></iframe>
+    </div>
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+
+
+
+
+
+
+    <script>
+        firebaseConfig = {
+            apiKey: "AIzaSyCNzUjr1xNqunHWf_Ny5yuMjjZSI5KR4i4",
+            authDomain: "web-login-1037b.firebaseapp.com",
+            databaseURL: "https://web-login-1037b.firebaseio.com",
+            projectId: "web-login-1037b",
+            storageBucket: "web-login-1037b.appspot.com",
+            messagingSenderId: "858741512793",
+            appId: "1:858741512793:web:7c53a728a943510258af48",
+            measurementId: "G-GN2TW1JG4Q"
+        };
+
+        document.getElementById("bt-logout").onclick = function (e) {
+            e.preventDefault();
+            console.log('click');
+            firebase.auth().signOut().then(function () {
+                window.alert("sign out");
+
+                window.location.href = "http://localhost:8000/login.html";
+            }, function (error) {
+
+
+            });
+
+        }
+
+        firebase.initializeApp(firebaseConfig);
+
+
+
+
+    </script>
+
+    <script src="scripts/date_time.js"></script>
+    <div id="free_space"></div>
+</body>
+
+</html>

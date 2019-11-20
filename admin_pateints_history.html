@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dental A Plus - Consult</title>
+        <link rel="stylesheet" href="styles/style2.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style>
+                button {
+                    margin-top: 15px;
+                    display: block;
+                    background: linear-gradient(to right, #7f59d0, #00bbc3);
+                    color: white;
+                    border: none;
+                    outline: none;
+                    padding: 8px 20px;
+                    text-transform: capitalize;
+                    cursor: pointer;
+                    font-size: 20px;
+                    margin-left : 30%
+                   
+        
+                }
+            </style>
+    
+    </head>
+    <body>
+        <div id="admin_header">
+            <p>Manage Patients</p>
+        </div>
+        <div class="sidenav">
+            <img src="images/logo.png">
+            <div id="appointment_clock">
+                <p id="dateSeven"></p>
+                <p id="dateDisplay"></p>
+                <p id="clockDisplay"></p>
+            </div>
+            <a href="admin_appointment.html">Appointment</a>
+            <a href="admin_pateints.html" id="current_page">Patients</a>
+            <a href="admin_queue.html">Queue update</a>
+            <a href="admin_consult.html" >Consult</a>
+            <hr>
+            <button id="bt-logout">Log out</botton>
+        </div>
+        <div id="patients_navbar">
+            <ul>
+                <li><a href="admin_pateints_list.html">Patients List</a></li>
+                <li><a href="admin_pateints_history.html" id="current_page_patients">Patients History</a></li>
+                <li><a href="admin_pateints.html">Add Patients</a></li>
+                <li><a href="admin_pateints_update.html">Update Patients</a></li>
+            </ul>
+        </div>
+    
+        <div style="margin-top: 5%;"></div>
+        <table id="patients_table" style="padding-left: 23%;"></table>
+        <script src="scripts/date_time.js"></script>
+
+        
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+        <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyCmb8xB4Y_83rYjQ46T5kKtMCdoVxqmzww",
+                authDomain: "dental-a-plus-patients-2b3d9.firebaseapp.com",
+                databaseURL: "https://dental-a-plus-patients-2b3d9.firebaseio.com",
+                projectId: "dental-a-plus-patients-2b3d9",
+                storageBucket: "dental-a-plus-patients-2b3d9.appspot.com",
+                messagingSenderId: "606526649017",
+                appId: "1:606526649017:web:2bb378057e8a5f0c756168",
+                measurementId: "G-GRWH7TH9TM"
+            };
+            const myFire = firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            const db = myFire.firestore();
+
+            
+            var result = "";
+            db.collection("patients_list").get().then(function (querySnapshot) {
+                var check = 0;
+                console.log("test1");
+                result = result + "<tr><th>Name</th><th>ID</th><th>Medical Condition</th><th>Admission date</th><th>Treatment</th></tr>";
+                querySnapshot.forEach(function (doc) {
+                    check += 1;
+                    var pname = doc.data().patients_name;
+                    var pid = doc.data().patients_ssn;
+                    var pmedcon = doc.data().patients_medcon;
+                    var padmitdate = doc.data().patients_admitdate;
+                    var ptreatment = doc.data().patients_treatment;
+
+                    console.log(doc.data().comment);
+
+                    console.log("test1");
+
+                    result = result + "<tr><td>" + pname + "</td><td>" + pid + "</td><td>" + pmedcon + "</td><td>" +
+                        padmitdate + "</td><td>" + ptreatment + "</td></tr>";
+                        
+                    
+                    $("#patients_table").html(result);
+                });
+            });
+
+        </script>
+         <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+         <!-- TODO: Add SDKs for Firebase products that you want to use
+          https://firebase.google.com/docs/web/setup#available-libraries -->
+         <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+     
+     
+     
+     
+     
+     
+         <script>
+             firebaseConfig = {
+                 apiKey: "AIzaSyCNzUjr1xNqunHWf_Ny5yuMjjZSI5KR4i4",
+                 authDomain: "web-login-1037b.firebaseapp.com",
+                 databaseURL: "https://web-login-1037b.firebaseio.com",
+                 projectId: "web-login-1037b",
+                 storageBucket: "web-login-1037b.appspot.com",
+                 messagingSenderId: "858741512793",
+                 appId: "1:858741512793:web:7c53a728a943510258af48",
+                 measurementId: "G-GN2TW1JG4Q"
+             };
+     
+             document.getElementById("bt-logout").onclick = function (e) {
+                 e.preventDefault();
+                 console.log('click');
+                 firebase.auth().signOut().then(function () {
+                     window.alert("sign out");
+     
+                     window.location.href = "http://localhost:8000/login.html";
+                 }, function (error) {
+     
+     
+                 });
+     
+             }
+     
+             firebase.initializeApp(firebaseConfig);
+     
+     
+     
+     
+         </script>
+
+        <div id="free_space"></div>
+    </body>
+</html>

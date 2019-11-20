@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Poppins:700,700i,900,900i&display=swap');
+	</style>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700,700i,800,800i,900,900i&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="styles/style.css" />
+	<!--===============================================================================================-->
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+</head>
+
+<body>
+
+        <form class="login100-form validate-form">
+                <span class="login100-form-title p-b-26">
+                    Welcome
+                </span>
+                <img src="images/logo.png" class="logo_login" style="width: 50%;">
+                <span class="login100-form-title p-b-48" style="padding-bottom: 30px;">
+                    <i class="zmdi zmdi-font"></i>
+                </span>
+
+                <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                    <input class="input100" type="text" name="email" id="userEmail">
+                    <span class="focus-input100" data-placeholder="Email"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                    <span class="btn-show-pass">
+                        <i class="zmdi zmdi-eye"></i>
+                    </span>
+                    <input class="input100" type="password" name="pass" id="userPassword">
+                    <span class="focus-input100" data-placeholder="Password"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn" >
+                            Login
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center p-t-115" style="height: 50px; padding-top:50px ;">
+                    <span class="txt1">
+                        Don’t have an account?
+                    </span>
+
+                    <a class="txt2" href="#">
+                        Sign Up
+                    </a>
+                </div>
+            </form>
+
+	
+
+
+	<div id="dropDownSelect1"></div>
+
+	<script>
+
+		var firebaseConfig = {
+			apiKey: "AIzaSyCNzUjr1xNqunHWf_Ny5yuMjjZSI5KR4i4",
+			authDomain: "web-login-1037b.firebaseapp.com",
+			databaseURL: "https://web-login-1037b.firebaseio.com",
+			projectId: "web-login-1037b",
+			storageBucket: "web-login-1037b.appspot.com",
+			messagingSenderId: "858741512793",
+			appId: "1:858741512793:web:7c53a728a943510258af48",
+			measurementId: "G-GN2TW1JG4Q"
+		};
+
+		firebase.initializeApp(firebaseConfig);
+	</script>
+
+
+
+	<script src="login.js"></script>
+
+
+
+</body>
+
+</html>

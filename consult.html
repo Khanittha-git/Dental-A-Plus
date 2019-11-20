@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental A Plus - Consult</title>
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+    <header>
+        <a href="login.html" id="loginBtn">Login</a>
+        <img src="images/logo.png">
+    </header>
+    <nav id="navbar">
+        <a href="index.html">HOME</a>
+        <a href="services.html">SERVICES</a>
+        <a href="queue.html">QUEUE</a>
+        <a href="consult.html" id="current_page"  style="color: white;">CONSULT</a>
+        <a href="contact.html">CONTACT</a>
+        <div class="line"></div>
+    </nav>
+    <div id="web_header">
+        <p>Dental Consultation</p>
+    </div>
+    <div id="consult_inputBox">
+        <form name="consult_form">
+            <table id="consult_table">
+                <tr id="row_label">
+                    <td><label>First name: </label></td>
+                    <td><label>Last name: </label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" required=" " name="consult_fname" placeholder="First name"></td>
+                    <td><input type="text" required=" " name="consult_lname" placeholder="Last name"></td>
+                </tr>
+                <tr id="row_label">
+                    <td><label>E-mail: </label></td>
+                    <td><label>Phone number: </label></td>
+                </tr>
+                <tr>
+                    <td><input type="email" required=" " name="consult_email" placeholder="E-mail"></td>
+                    <td><input type="number" required=" " name="consult_phone" placeholder="Phone number"></td>
+                </tr>
+                <tr id="row_textArea">
+                    <td><label>Consultation: </label></td>
+                </tr>
+            </table>
+
+            <textarea id="consult_textArea" type="text" required=" " rows="10" cols="50"
+                placeholder="Message"></textarea>
+
+            <table>
+                <tr>
+                    <td>
+                        <input id="uploadFile" type="submit" value="Upload file">
+                    </td>
+                    <td>
+                        <input id="send" type="submit" value="Send">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="free_space"></div>
+    <div id="footer">Copyright @ 2019 All Rights Reserved</div>
+</body>
+
+</html>

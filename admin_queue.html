@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental A Plus - Consult</title>
+    <link rel="stylesheet" href="styles/style2.css" />
+    <style>
+        button {
+            margin-top: 15px;
+            display: block;
+            background: linear-gradient(to right, #7f59d0, #00bbc3);
+            color: white;
+            border: none;
+            outline: none;
+            padding: 8px 20px;
+            text-transform: capitalize;
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 30%
+        }
+    </style>
+</head>
+
+<body>
+    <div id="admin_header">
+        <p>Queue Update</p>
+    </div>
+    <div class="sidenav">
+        <img src="images/logo.png">
+        <div id="appointment_clock">
+            <p id="dateSeven"></p>
+            <p id="dateDisplay"></p>
+            <p id="clockDisplay"></p>
+        </div>
+        <a href="admin_appointment.html">Appointment</a>
+        <a href="admin_pateints.html">Patients</a>
+        <a href="admin_queue.html" id="current_page">Queue update</a>
+        <a href="admin_consult.html" >Consult</a>
+        <hr>
+        <button id="bt-logout">Log out</botton>
+    </div>
+    <div id="admin_queue">
+        <form id="add_patients">
+            <legend style="padding-bottom: 10%;">Queue update</legend>
+            <div>
+                <label for="queue">Number of queue: </label>
+                <input type="number" id="admin_queue" name="admin_queue">
+            </div>
+            <div>
+                <button type="submit" value="Update Queue">Update Queue</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function renderTime() {
+            // Date 
+            var myDate = new Date();
+            var year = myDate.getYear();
+            if (year < 1000) {
+                year += 1900;
+            }
+            var day = myDate.getDay();
+            var month = myDate.getMonth();
+            var daym = myDate.getDate();
+            var dayArray = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+            var monthArray = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+            // Date End
+
+            // Time
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            if (hours == 24) {
+                hours = 0;
+            } else if (hours > 12) {
+                hours = hours - 0;
+            }
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+
+            var myDay = document.getElementById("dateSeven");
+            var myDate = document.getElementById("dateDisplay");
+            var myClock = document.getElementById("clockDisplay");
+
+            myDay.innerHTML = "<b>Today: </b>" + dayArray[day] + " " + daym + " " + monthArray[month] + " " + hours + ":" + minutes;
+
+            setTimeout('renderTime()', 1000);
+        }
+        renderTime();
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+
+    <script>
+        firebaseConfig = {
+            apiKey: "AIzaSyCNzUjr1xNqunHWf_Ny5yuMjjZSI5KR4i4",
+            authDomain: "web-login-1037b.firebaseapp.com",
+            databaseURL: "https://web-login-1037b.firebaseio.com",
+            projectId: "web-login-1037b",
+            storageBucket: "web-login-1037b.appspot.com",
+            messagingSenderId: "858741512793",
+            appId: "1:858741512793:web:7c53a728a943510258af48",
+            measurementId: "G-GN2TW1JG4Q"
+        };
+
+        document.getElementById("bt-logout").onclick = function (e) {
+            e.preventDefault();
+            console.log('click');
+            firebase.auth().signOut().then(function () {
+                window.alert("sign out");
+
+                window.location.href = "http://localhost:8000/login.html";
+            }, function (error) {
+
+
+            });
+
+        }
+
+        firebase.initializeApp(firebaseConfig);
+
+
+
+
+    </script>
+    <div id="free_space"></div>
+</body>
+
+</html>
